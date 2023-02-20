@@ -52,9 +52,12 @@ const MovieDetails = () => {
 
   return (
     <main>
-      <button className={css.backBtn} type="button">
-        <BackLink to={backLinkHref}>Back</BackLink>
-      </button>
+      <BackLink to={backLinkHref}>
+        <button className={css.backBtn} type="button">
+          Back
+        </button>
+      </BackLink>
+
       {error && <p>{error}</p>}
       {details && (
         <div className={css.detailsWrap}>

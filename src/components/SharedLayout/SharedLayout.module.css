@@ -1,0 +1,31 @@
+.header {
+  top: 0;
+  left: 0;
+  position: sticky;
+  z-index: 1100;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  min-height: 64px;
+  padding-right: 31px;
+  padding-left: 31px;
+  padding-top: 29px;
+  padding-bottom: 29px;
+
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+.navigation {
+  display: flex;
+  gap: 30px;
+}
+
+.navLink:hover {
+  color: #ff0000;
+}
+
+.navLink.active {
+  text-decoration: underline;
+}

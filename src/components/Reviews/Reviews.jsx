@@ -8,11 +8,11 @@ const Reviews = () => {
 
   const { id } = useParams();
 
-  useEffect(() => {
-    getMovieReviews(id)
-      .then(response => console.log(response))
-      .catch(error => setError(error));
-  }, [id]);
+  // useEffect(() => {
+  //   getMovieReviews(id)
+  //     .then(response => console.log(response))
+  //     .catch(error => setError(error));
+  // }, [id]);
 
   return (
     <>

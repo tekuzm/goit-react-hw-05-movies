@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams, Outlet } from 'react-router-dom';
 
 // ========== API ==========
 
@@ -22,9 +22,9 @@ const MovieDetails = () => {
       .then(({ poster_path, title, popularity, overview, genres }) => {
         const info = {
           poster: `https://image.tmdb.org/t/p/original/${poster_path}`,
-          title: title,
+          title,
           popularity: popularity.toFixed(0),
-          overview: overview,
+          overview,
           genresNames: genres.map(genre => genre.name).join(', '),
         };
 
@@ -68,10 +68,15 @@ const MovieDetails = () => {
 
           <div>
             <h4>Additional information</h4>
-            <ul>
-              <Link to="cast">Cast</Link>
-              <Link to="reviews">Reviews</Link>
+            <ul className={css.infoWrap}>
+              <li>
+                <Link to="cast">Cast</Link>
+              </li>
+              <li>
+                <Link to="reviews">Reviews</Link>
+              </li>
             </ul>
+            <Outlet />
           </div>
         </div>
       )}

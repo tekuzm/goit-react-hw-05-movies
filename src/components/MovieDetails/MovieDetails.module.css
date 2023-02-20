@@ -101,3 +101,11 @@ p {
   line-height: 1.2;
   letter-spacing: 0.05em;
 }
+
+.infoWrap {
+  padding: 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

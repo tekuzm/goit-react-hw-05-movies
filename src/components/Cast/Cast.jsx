@@ -18,7 +18,8 @@ const Cast = () => {
     getMovieCredits(id)
       .then(({ cast }) => {
         const data = {
-          item: cast.map(({ profile_path, name, character }) => ({
+          item: cast.map(({ cast_id, profile_path, name, character }) => ({
+            id: cast_id,
             img: profile_path
               ? `https://image.tmdb.org/t/p/original/${profile_path}`
               : 'https://via.placeholder.com/200x300.png?text=No+Image',
@@ -39,11 +40,11 @@ const Cast = () => {
   return (
     <>
       {error && <p>{error}</p>}
-      {cast.length > 0 && (
+      {cast && cast.length > 0 && (
         <ul className={css.castList}>
-          {cast.map(({ img, name, character }) => {
+          {cast.map(({ id, img, name, character }) => {
             return (
-              <li className={css.castItem} key={name}>
+              <li className={css.castItem} key={id}>
                 <img className={css.castImg} src={img} alt={name}></img>
                 <p>{name}</p>
                 <p>Character: {character}</p>

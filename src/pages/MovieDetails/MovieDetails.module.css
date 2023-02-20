@@ -109,3 +109,8 @@ p {
   flex-direction: column;
   gap: 10px;
 }
+
+.infoWrap li a.active {
+  color: #ff0000;
+  text-decoration: underline;
+}

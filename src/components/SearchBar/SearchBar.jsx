@@ -1,4 +1,9 @@
 import { useState } from 'react';
+import PropTypes from 'prop-types';
+
+// ========== styles ==========
+
+import css from './SearchBar.module.css';
 
 const SearchBar = ({ onSubmit }) => {
   const [search, setSearch] = useState('');
@@ -15,8 +20,13 @@ const SearchBar = ({ onSubmit }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className={css.searchForm} onSubmit={handleSubmit}>
+      <button className={css.searchForm_button} type="submit">
+        <span className={css.searchForm_button_label}>Search</span>
+      </button>
+
       <input
+        className={css.searchForm_input}
         type="text"
         name="search"
         value={search}
@@ -26,11 +36,12 @@ const SearchBar = ({ onSubmit }) => {
         autoFocus
         required
       />
-      <button type="submit">
-        <span>Search</span>
-      </button>
     </form>
   );
 };
 
 export default SearchBar;
+
+SearchBar.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};

@@ -26,11 +26,11 @@ const Movies = () => {
   };
 
   return (
-    <>
+    <main>
       <SearchBar onSubmit={onMovieSearch} />
       {error && <p>{error}</p>}
       {search && <MoviesList movies={movies} />}
-    </>
+    </main>
   );
 };
 

@@ -7,10 +7,14 @@
   justify-content: flex-end;
   align-items: center;
   min-height: 64px;
-  padding-right: 31px;
-  padding-left: 31px;
-  padding-top: 29px;
-  padding-bottom: 29px;
+  padding-right: 48px;
+  padding-left: 48px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+
+  background-color: #1e1e1e;
+  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+    0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
 
   font-weight: 700;
   font-size: 20px;
@@ -22,10 +26,7 @@
   gap: 30px;
 }
 
-.navLink:hover {
+.header nav a.active {
   color: #ff0000;
-}
-
-.navLink.active {
   text-decoration: underline;
 }

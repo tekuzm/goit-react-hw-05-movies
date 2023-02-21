@@ -5,14 +5,22 @@ import PropTypes from 'prop-types';
 
 import css from './MoviesList.module.css';
 
-const MoviesList = ({ movies }) => {
+const MoviesList = ({ movies, search }) => {
   const location = useLocation();
 
   return (
     <ul className={css.moviesList}>
       {movies.map(({ id, title }) => (
         <li key={id}>
-          <Link to={`/movies/${id}`} state={{ from: location }}>
+          <Link
+            to={{
+              pathname: `/movies/${id}`,
+              state: {
+                from: location,
+                search: search,
+              },
+            }}
+          >
             {title}
           </Link>
         </li>
@@ -25,4 +33,5 @@ export default MoviesList;
 
 MoviesList.propTypes = {
   movies: PropTypes.array.isRequired,
+  search: PropTypes.string,
 };

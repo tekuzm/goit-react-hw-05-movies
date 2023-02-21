@@ -2,12 +2,16 @@ import MoviesList from 'components/MoviesList/MoviesList';
 import SearchBar from 'components/SearchBar/SearchBar';
 import { fetchMovies } from 'services/api';
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Movies = () => {
+  const navigate = useNavigate();
+
   const [search, setSearch] = useState('');
   const [movies, setMovies] = useState([]);
   const [error, setError] = useState();
 
+  // load movies on initial render or when search term changes
   useEffect(() => {
     if (!search) {
       return;
@@ -16,9 +20,11 @@ const Movies = () => {
     fetchMovies(search)
       .then(({ results }) => {
         setMovies(results);
+        // Update the URL with the search query
+        navigate(`?query=${search}`);
       })
       .catch(error => setError(error));
-  }, [search]);
+  }, [search, navigate]);
 
   const onMovieSearch = search => {
     setSearch(search);
@@ -27,9 +33,9 @@ const Movies = () => {
 
   return (
     <main>
-      <SearchBar onSubmit={onMovieSearch} />
+      <SearchBar onSubmit={onMovieSearch} initialValue={search} />
       {error && <p>{error}</p>}
-      {search && <MoviesList movies={movies} />}
+      {search && <MoviesList movies={movies} search={search} />}
     </main>
   );
 };

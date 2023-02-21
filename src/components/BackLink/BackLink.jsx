@@ -8,6 +8,6 @@ const BackLink = ({ to, children }) => {
 export default BackLink;
 
 BackLink.propTypes = {
-  to: PropTypes.object.isRequired,
+  to: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
 };

@@ -1,8 +1,14 @@
-import MoviesList from 'components/MoviesList/MoviesList';
-import SearchBar from 'components/SearchBar/SearchBar';
-import { fetchMovies } from 'services/api';
 import { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+
+// ========== API ==========
+
+import { fetchMovies } from 'services/api';
+
+// ========== components ==========
+
+import MoviesList from 'components/MoviesList/MoviesList';
+import SearchBar from 'components/SearchBar/SearchBar';
 
 const Movies = () => {
   const navigate = useNavigate();

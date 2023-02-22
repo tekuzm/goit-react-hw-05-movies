@@ -30,11 +30,6 @@ a:hover {
   color: #ff0000;
 }
 
-a.active {
-  color: #ff0000 !important;
-  text-decoration: underline !important;
-}
-
 ul {
   list-style: none;
 }

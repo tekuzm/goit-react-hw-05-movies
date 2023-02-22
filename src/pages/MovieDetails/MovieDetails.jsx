@@ -22,6 +22,11 @@ const MovieDetails = () => {
   const location = useLocation();
   const backLinkHref = location.state?.from ?? '/';
 
+  let activeStyle = {
+    color: '#ff0000',
+    textDecoration: 'underline',
+  };
+
   useEffect(() => {
     getMovieById(id)
       .then(
@@ -90,7 +95,7 @@ const MovieDetails = () => {
               <li>
                 <NavLink
                   to="cast"
-                  className={location.pathname === 'cast' ? 'active' : ''}
+                  style={({ isActive }) => (isActive ? activeStyle : undefined)}
                 >
                   Cast
                 </NavLink>
@@ -98,7 +103,7 @@ const MovieDetails = () => {
               <li>
                 <NavLink
                   to="reviews"
-                  className={location.pathname === 'reviews' ? 'active' : ''}
+                  style={({ isActive }) => (isActive ? activeStyle : undefined)}
                 >
                   Reviews
                 </NavLink>

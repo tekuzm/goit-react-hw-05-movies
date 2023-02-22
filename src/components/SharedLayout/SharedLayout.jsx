@@ -1,22 +1,28 @@
-import { NavLink, Outlet, useLocation } from 'react-router-dom';
+import { NavLink, Outlet } from 'react-router-dom';
 
 // ========== styles ==========
 
 import css from './SharedLayout.module.css';
 
 const SharedLayout = () => {
-  const location = useLocation();
+  let activeStyle = {
+    color: '#ff0000',
+    textDecoration: 'underline',
+  };
 
   return (
     <>
       <header className={css.header}>
         <nav className={css.navigation}>
-          <NavLink to="/" className={location.pathname === '/' ? 'active' : ''}>
+          <NavLink
+            to="/"
+            style={({ isActive }) => (isActive ? activeStyle : undefined)}
+          >
             Home
           </NavLink>
           <NavLink
             to="/movies"
-            className={location.pathname === '/movies' ? 'active' : ''}
+            style={({ isActive }) => (isActive ? activeStyle : undefined)}
           >
             Movies
           </NavLink>

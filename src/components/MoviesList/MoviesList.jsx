@@ -15,10 +15,10 @@ const MoviesList = ({ movies, search }) => {
           <Link
             to={{
               pathname: `/movies/${id}`,
-              state: {
-                from: location,
-                search: search,
-              },
+            }}
+            state={{
+              from: location,
+              search: search,
             }}
           >
             {title}

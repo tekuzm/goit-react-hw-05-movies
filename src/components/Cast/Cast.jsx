@@ -40,7 +40,7 @@ const Cast = () => {
   return (
     <>
       {error && <p>{error}</p>}
-      {cast && cast.length > 0 && (
+      {cast && cast.length > 0 ? (
         <ul className={css.castList}>
           {cast.map(({ id, img, name, character }) => {
             return (
@@ -52,6 +52,8 @@ const Cast = () => {
             );
           })}
         </ul>
+      ) : (
+        'We do not find the cast for this movie.'
       )}
     </>
   );

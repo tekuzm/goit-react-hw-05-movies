@@ -35,7 +35,14 @@ const Movies = () => {
     <main>
       <SearchBar onSubmit={onMovieSearch} initialValue={search} />
       {error && <p>{error}</p>}
-      {search && <MoviesList movies={movies} search={search} />}
+      {search && movies.length === 0 && (
+        <p>
+          We do not find any movie with such name. Please, try another keyword!
+        </p>
+      )}
+      {search && movies.length > 0 && (
+        <MoviesList movies={movies} search={search} />
+      )}
     </main>
   );
 };

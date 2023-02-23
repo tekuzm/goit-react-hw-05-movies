@@ -5,7 +5,7 @@ import { NavLink, Outlet } from 'react-router-dom';
 import css from './SharedLayout.module.css';
 
 const SharedLayout = () => {
-  let activeStyle = {
+  const activeStyle = {
     color: '#ff0000',
     textDecoration: 'underline',
   };

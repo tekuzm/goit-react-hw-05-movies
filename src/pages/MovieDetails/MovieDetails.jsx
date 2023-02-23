@@ -1,13 +1,9 @@
 import { useEffect, useState } from 'react';
-import { NavLink, useParams, Outlet, useLocation } from 'react-router-dom';
+import { NavLink, useParams, Outlet, useNavigate } from 'react-router-dom';
 
 // ========== API ==========
 
 import { getMovieById } from 'services/api';
-
-// ========== components ==========
-
-import BackLink from 'components/BackLink/BackLink';
 
 // ========== styles ==========
 
@@ -19,8 +15,7 @@ const MovieDetails = () => {
 
   const { id } = useParams();
 
-  const location = useLocation();
-  const backLinkHref = location.state?.from ?? '/';
+  const navigate = useNavigate();
 
   let activeStyle = {
     color: '#ff0000',
@@ -57,11 +52,15 @@ const MovieDetails = () => {
 
   return (
     <main>
-      <BackLink to={backLinkHref}>
-        <button className={css.backBtn} type="button">
-          Back
-        </button>
-      </BackLink>
+      <button
+        className={css.backBtn}
+        type="button"
+        onClick={() => {
+          navigate(-1);
+        }}
+      >
+        Back
+      </button>
 
       {error && <p>{error}</p>}
       {details && (
@@ -95,6 +94,7 @@ const MovieDetails = () => {
               <li>
                 <NavLink
                   to="cast"
+                  replace
                   style={({ isActive }) => (isActive ? activeStyle : undefined)}
                 >
                   Cast
@@ -103,6 +103,7 @@ const MovieDetails = () => {
               <li>
                 <NavLink
                   to="reviews"
+                  replace
                   style={({ isActive }) => (isActive ? activeStyle : undefined)}
                 >
                   Reviews
